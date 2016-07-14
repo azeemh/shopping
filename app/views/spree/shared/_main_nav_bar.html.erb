@@ -1,0 +1,24 @@
+<div class="row">
+  <nav class="col-md-12">
+    <div id="main-nav-bar" class="navbar">
+      <ul class="nav navbar-nav navbar-right" data-hook>
+        <%- unless current_page?(cart_path) -%>
+        <li id="link-to-cart" data-hook>
+          <noscript>
+            <%= link_to cart_path do %>
+              <span class='glyphicon glyphicon-shopping-cart' title='<%= Spree.t(:shopping_cart) %>'></span>
+            <% end %>
+          </noscript>
+          &nbsp;
+        </li>
+        <script>Spree.fetch_cart()</script>
+        <%- end -%>
+        <% if spree_current_user %>
+          <li><%= link_to spree.logout_path do %>
+            <span class='glyphicon glyphicon-log-out' title='<%= Spree.t(:logout) %>'></span>
+          <% end %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</div>

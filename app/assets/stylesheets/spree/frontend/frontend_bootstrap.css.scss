@@ -1,0 +1,337 @@
+$red-orange: #ff3300;
+$brand-primary: $red-orange !default;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  font-size: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+p, li, div, th, td, label, .btn, .radio label, .checkbox label {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6, .panel-title {
+  font-size: 22px;
+  font-weight: 200;
+  line-height: 0.9em;
+}
+
+strong, .lead {
+  font-weight: 400;
+}
+
+// Fix so Spree flashes map to Bootstrap components.
+.alert-notice {
+  @extend .alert-warning;
+}
+.alert-error,
+.alert-alert {
+  @extend .alert-danger;
+}
+
+#header #logo {
+  text-align: center;
+  margin: 15px 0;
+
+  @media (min-width: $screen-xs-min) {
+    & {
+      margin: 30px 0;
+    }
+  }
+}
+
+#header #logo img {
+  width: 70px;
+
+  @media (min-width: $screen-xs-min) {
+    & {
+      width: 110px;
+    }
+  }
+}
+
+.navbar-right > li > a {
+  text-align: right;
+}
+
+#breadcrumbs {
+  display: none;
+}
+
+.kit-listing {
+  margin-bottom: 30px;
+}
+
+.hero-image img {
+  width: 100%;
+}
+
+.hero-image h1 {
+  padding: 15px 0;
+  color: black;
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+  color: darken($brand-primary, 20);
+}
+
+.stacked-block + .stacked-block {
+  margin-top: 15px;
+
+  @media (min-width: $screen-sm-min) {
+    & {
+      margin-top: 30px;
+    }
+  }
+}
+
+.taxon-title {
+  padding-top: 6px;
+  float: left;
+
+  @media (min-width: $screen-sm-min) {
+    & {
+      padding-top: 45%;
+      float: none;
+    }
+  }
+}
+
+/* For space between children on taxons/show (not home/index)  */
+.taxon-listing + .taxon-listing {
+  margin-top: 40px;
+}
+
+.taxon-listing .hero-image {
+  height: 420px;
+  background: no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  @media (min-width: $screen-sm-min) {
+    & {
+      height: 600px;
+    }
+  }
+}
+
+.taxon-listing .hero-image h1 {
+  padding: 15px 0;
+  margin: 0;
+  color: black;
+  text-align: center;
+}
+
+.taxon-listing .group-link {
+  padding: 0 15px;
+  background-color: white;
+
+  @media (max-width: $screen-xs-min) {
+    & {
+      padding: 0 5px;
+    }
+    h1 {
+      font-size: 16px;
+    }
+  }
+}
+
+.taxon-listing .hero-image-link {
+  display: block;
+}
+
+.taxon-scope {
+  font-size: 16px;
+}
+
+h1.taxon-title,
+h1.product-title {
+  margin: 0;
+}
+
+.product-list-item-image {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.product-list-item-info > h2 {
+  padding-top: 33%;
+}
+
+#product-images #main-image img {
+  width: 100%;
+}
+
+#product-images #product-thumbnails {
+  margin: 15px 0 0 0;
+  text-align: center;
+}
+
+#product-images #product-thumbnails > li {
+  padding: 0;
+}
+
+#product-images #product-thumbnails li + li {
+  margin-left: 15px;
+}
+
+#product-images .thumbnail {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+}
+
+#product-description .product-title {
+  padding-top: 0;
+
+  @media (min-width: $screen-md-min) {
+    & {
+      padding-top: 45%;
+    }
+  }
+}
+
+#product-price {
+  padding-top: 6px;
+}
+
+.add-to-cart {
+  text-align: right;
+}
+
+#product-properties th {
+  font-weight: normal;
+  text-align: right;
+}
+
+.iconic-cart-title {
+  font-size: 22px;
+  margin: 0 0 15px 0;
+  text-align: center;
+  color: #ddd;
+
+  @media (min-width: $screen-xs-min) {
+    & {
+      font-size: 36px;
+    }
+  }
+}
+
+.listing-page {
+  text-align: center;
+
+  .row {
+    text-align: left;
+  }
+}
+
+.cart-item-quantity input {
+  width: 50%;
+}
+
+.cart-total-label {
+  text-align: right;
+}
+
+.table-responsive {
+  border: none;
+}
+
+.table > thead > tr > th {
+  border-bottom: none;
+}
+
+.table > thead > tr.active > th {
+  background-color: transparent;
+}
+
+@media (max-width: $screen-sm-min) {  
+  table#cart-detail {
+      /* Force table to not be like tables anymore */
+    &, thead, tbody, th, td, tr { 
+      display: block; 
+    }
+    
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr { 
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    p {
+      margin: 0;
+    }
+    
+    #line_items > tr {
+      border: 1px solid #ccc;
+    }
+    
+    #line_items > tr > th,
+    #line_items > tr > td {
+      padding-top: 4px;
+      padding-bottom: 4px;
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+    #line_items > tr > td { 
+      /* Behave  like a "row" */
+      border: none;
+      position: relative;
+      padding-left: 25%; 
+      white-space: normal;
+    }
+    #line_items > tr > td:nth-of-type(1) { 
+      padding-left: 10px;
+      text-align: center;
+    }
+
+    #line_items > tr > td:nth-of-type(5) {
+      display: none;
+    }
+    
+    #line_items > tr > td:before { 
+      /* Now like a table header */
+      position: absolute;
+      /* Top/left values mimic padding */
+      top: 4px;
+      left: 0;
+      width: 25%;
+      padding-right: 10px;
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .cart-item-quantity input {
+      width: 75%;
+    }
+
+    tr.cart-total > th,
+    tr.cart-total > td {
+      border: none;
+      display: table-cell;
+    }
+    tr.cart-total > th {
+      width: 100%; 
+      text-align: right;
+    }
+    tr.cart-total > td:nth-of-type(2) {
+      display: none;
+    }
+
+    /*
+    Label the data
+    */
+    #line_items > tr > td:nth-of-type(1):before { content: " "; }
+    #line_items > tr > td:nth-of-type(2):before { content: "Item"; }
+    #line_items > tr > td:nth-of-type(3):before { content: "Price"; }
+    #line_items > tr > td:nth-of-type(4):before { content: "Qty"; }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "name": "FIX eCommerce storefront",
+  "description": "Reference architecture, Heroku + Salesforce",
+  "keywords": [
+    "ecommerce",
+    "ruby",
+    "salesforce"
+  ],
+  "website": "https://heroku.github.io/fix",
+  "repository": "https://github.com/heroku/fix.git",
+  "logo": "https://heroku.github.io/fix/images/fix-logotype.svg",
+  "success_url": "/admin",
+  "scripts": {
+    "postdeploy": "bin/setup"
+  },
+  "env": {
+    "AWS_S3_BUCKET": {
+      "description": "Name of the S3 bucket where the images are hosted. By default, this is a shared, read-only bucket containing the FIX demo images.",
+      "value": "fix-coffee"
+    },
+    "AWS_ACCESS_KEY_ID": {
+      "description": "Amazon Web Services key ID with write permissions to the S3 bucket. Required only if you plan to add/edit products & kits in Spree",
+      "required": false
+    },
+    "AWS_SECRET_ACCESS_KEY": {
+      "description": "Secret for the given Amazon Web Services key ID.",
+      "required": false
+    },
+    "AWS_REGION": {
+      "description": "Amazon Web Services region. Only change if the app is intentionally deployed to another region.",
+      "value": "us-east-1"
+    },
+    "FIX_DEMO": {
+      "description": "Leave this blank if you want to deploy an empty storefront without the  sample products or custom FIX home screen.",
+      "value": "enabled",
+      "required": false
+    },
+    "DEPLOYMENT": {
+      "description": "Indicates the runtime location of the app; used to regulate behaviors which are different when running at Heroku",
+      "value": "production"
+    },
+    "LANG": {
+      "description": "Default locale & character encoding to use in app runtime",
+      "value": "en_US.UTF-8"
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "description": "Rails on Heroku should server its own static content; unset this var if a web server is in front of Spree",
+      "value": "enabled",
+      "required": false
+    },
+    "SECRET_KEY_BASE": {
+      "description": "A unique secret used by Rails to generate and verify signed cookies (among other things)",
+      "generator": "secret"
+    }
+  },
+  "addons": [
+    "heroku-postgresql",
+    "herokuconnect:demo",
+    "mailgun",
+    "memcachier",
+    "papertrail"
+  ]
+}
